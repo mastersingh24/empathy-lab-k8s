@@ -1,0 +1,11 @@
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata:
+  name: gemma-monitor
+spec:
+  selector:
+    matchLabels:
+      app: gemma-server
+  endpoints:
+  - port: 8000
+    interval: 10s

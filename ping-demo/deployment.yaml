@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ping-demo
+  name: ping-demo-default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ping-demo
+  template:
+    metadata:
+      labels:
+        app: ping-demo
+    spec:
+      containers:
+      - image: us-docker.pkg.dev/gari-test/cloudonair/ping-demo:latest
+        name: ping-demo-default
+        resources:
+          requests:
+            cpu: 500m
+            ephemeral-storage: 1Gi
+            memory: 2Gi
+          limits:
+            cpu: 500m
+            ephemeral-storage: 1Gi
+            memory: 2Gi
